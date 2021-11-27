@@ -1,0 +1,23 @@
+get-server.js:
+
+ In a separate Terminal window, we can either use curl to send GET requests to our
+server or access the two endpoints in our browser:
+$ curl http://localhost:3000/
+{"name": "todo-server"}
+$ curl http://localhost:3000/todo
+[{"task_id": 1, "description": "walk dog"}]}
+
+
+json-server.js:
+
+Testing our server can handle the POST route. We will do this using
+the curl command-line tool. Start your server in one Terminal window:
+$ node json-server.js
+5. And, in a separate Terminal window, enter the following command:
+$ curl --header "Content-Type: application/json" \
+--request POST \
+--data '{"forename":"Beth","surname":"Griggs"}' \
+http://localhost:3000/
+{"data": {"forename":"Beth","surname":"Griggs"}}
+
+

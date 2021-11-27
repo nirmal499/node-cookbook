@@ -1,0 +1,8 @@
+1. Communicating between browser client and Websocket server
+In one terminal do "yarn start server"
+And in other terminal do "yarn start client"
+
+2. Communicating between Websocket client and Websocket server, enabling two
+Nodejs programs to communicate with each other
+In one terminal do "yarn start server"
+And in other terminal do "yarn start node-client"

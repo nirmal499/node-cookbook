@@ -1,0 +1,5 @@
+1. To test our send-email.js program, first start the SMTP server:
+$ node server.js
+
+2. And in a second Terminal window, run your send-email.js program:
+$ node send-email.js

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- The enctype="multipart/form-data" property on the form element instructs the
+      browser to set the Content-Type header of the request to multipart/form-data.
+      This also instructs the browser to embed the files to be uploaded into a multipart message -->
+    <form method="POST" enctype="multipart/form-data">
+      <label for="user">User:</label>
+      <input type="text" id="user" name="user" /><br />
+      <label for="userfile">File:</label>
+      <input type="file" id="userfile" name="userfile" multiple /><br />
+      <input type="submit" />
+    </form>
+  </body>
+</html>

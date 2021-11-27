@@ -1,0 +1,17 @@
+{
+  "name": "server-smtp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "send-mail":"node send-email.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^6.7.2",
+    "smtp-server": "^3.9.0"
+  }
+}

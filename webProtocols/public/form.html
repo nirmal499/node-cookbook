@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form method="POST">
+      <label for="forename">Forename:</label>
+      <input type="text" id="forename" name="forename" />
+      <label for="surname">Surname:</label>
+      <input type="text" id="surname" name="surname" />
+      <input type="submit" value="Submit" />
+    </form>
+    <script>
+      document.forms[0].addEventListener("submit", (event) => {
+        /* Note that our use of event.preventDefault will
+            prevent the browser from redirecting the web page upon submission of the form. */
+        event.preventDefault();
+
+        let data = {
+          forename: document.getElementById("forename").value,
+          surname: document.getElementById("surname").value,
+        };
+        console.log("data", data);
+
+        /* Works for json-server.js */
+        fetch("http://localhost:3000", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }).then((response) => {
+          console.log(response);
+          return response.json();
+        });
+      });
+    </script>
+  </body>
+</html>

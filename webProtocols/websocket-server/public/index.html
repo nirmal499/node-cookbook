@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Communicating with WebSockets</h1>
+    <input id="msg" /><button id="send">Send</button>
+    <div id="output"></div>
+    <script>
+      /* we created a connection to our WebSocket server, providing the endpoint
+        that the ws object is listening to */
+      const ws = new WebSocket("ws://localhost:3000");
+      const output = document.getElementById("output");
+      const send = document.getElementById("send");
+
+      send.addEventListener("click", () => {
+        const msg = document.getElementById("msg").value;
+        /* Clearing the input given */
+        document.getElementById("msg").value = "";
+        ws.send(msg);
+        /* To send a message to our WebSocket server, we just call send on the ws object with
+          ws.send(msg) */
+        output.innerHTML += log("Sent", msg);
+      });
+
+      function log(event, msg) {
+        return "<p>" + event + ": " + msg + "</p>";
+      }
+      /* the onmessage event listener function would
+          execute when our WebSocket receives a message. We use these event listeners to add
+          output to our web page. */
+      ws.onmessage = function (e) {
+        output.innerHTML += log("Received", e.data);
+      };
+      ws.onclose = function (e) {
+        output.innerHTML += log("Disconnected", e.code);
+      };
+      ws.onerror = function (e) {
+        output.innerHTML += log("Error", e.data);
+      };
+    </script>
+  </body>
+</html>
