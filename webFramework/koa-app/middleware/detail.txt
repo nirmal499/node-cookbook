@@ -1,0 +1,34 @@
+Koa.js middleware cascades. The middleware will run in a cascading fashion until the last
+middleware is reached, at which point the flow moves back upstream. It is Koa.js's use of
+async functions that enables this flow:
+
+const Koa = require("koa");
+const app = new Koa();
+
+app.use(async (ctx, next) => {
+    console.log("First middleware start");
+    await next();
+    console.log("First middleware return");
+});
+
+app.use(async (ctx, next) => {
+    console.log("Second middleware start");
+    await next();
+    console.log("Second middleware return");
+});
+
+app.use(async (ctx) => {
+    console.log("Third middleware start");
+    console.log("Third middleware return");
+});
+
+app.listen(3000);
+
+
+<-----------------------OUTPUT is---------------------------------->
+First middleware start
+Second middleware start
+Third middleware start
+Third middleware return
+Second middleware return
+First middleware return
