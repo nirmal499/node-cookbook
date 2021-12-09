@@ -1,0 +1,14 @@
+Public Key Cryptography
+
+1. DATA ENCRYPTION:
+
+encrypt(someMessage,public_key)
+decrypt(someMessage,private_key)
+
+2. IDENTITY VERIFICATION:
+
+encrypt(someMessage,private_key)
+decrypt(someMessage,public_key)
+
+
+

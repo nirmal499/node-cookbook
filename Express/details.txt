@@ -1,0 +1,21 @@
+middlewareExamples:
+
+We are going to deep down to understand express middleware
+
+sessionExamples:
+
+mysql user is 'nodejsuser' and password is '(24fG$#[f$BqZdT='
+dbname is 'nodejsuserdb'
+
+TO MYSQL CLIENT TO WORK PROPERLY DO
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'your new password'; 
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your new password';
+
+mysql> alter user 'nodejsuser'@'localhost' identified with mysql_native_password by '(24fG$#[f$BqZdT=';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.01 sec)
+
+
