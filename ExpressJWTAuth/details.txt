@@ -1,0 +1,9 @@
+First run
+
+$ node generateKeypair.js
+
+
+`users/login` route:
+
+username: nbaskey
+password: abc123
